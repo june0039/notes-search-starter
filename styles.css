@@ -70,7 +70,28 @@ button:hover {
 
 }
 
+.searchBar {
 
+    display:grid;
+    grid-template-columns: 1fr 50px;
+    background: #ccc;
+    box-shadow: 0 1px 3px #888;
+
+
+}
+
+#search {
+    grid-column: span 1;
+    background: none;
+    box-shadow: none ;
+}
+
+.magnifier{
+
+    text-align: center;
+    align-self: center;
+
+}
 
 input:focus-visible,
 textarea:focus-visible {

@@ -64,7 +64,6 @@ $notes.addEventListener('click', function (e) {
     }
 })
 
-
 function displayNote(note) {
     $notes.innerHTML += `
     <div class='note'>
@@ -76,3 +75,17 @@ function displayNote(note) {
 }
 
 init()
+
+const $search = document.getElementById('search')
+
+let timer = null
+
+$search.addEventListener('keydown', function () {
+    timer = setTimeout(search, 500)
+    
+})
+
+function search() {
+    alert()
+
+}
