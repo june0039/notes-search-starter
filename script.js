@@ -81,11 +81,48 @@ const $search = document.getElementById('search')
 let timer = null
 
 $search.addEventListener('keydown', function () {
+    if (timer != null) clearTimeout(timer)
+    
     timer = setTimeout(search, 500)
     
 })
 
 function search() {
-    alert()
+    let query = $search.value.toLowerCase()
 
-}
+    init()
+    
+    if (query == '') return
+    
+    for (const key in localStorage) {
+        if (parseInt(key)) {
+            
+        
+            const note = JSON.parse(localStorage[key])
+
+            const $note = document.getElementById('note=' + note.id)
+            
+            if ($note == null) continue
+            
+            if (note.title.includes(query) || note.text.includes(query)) {
+                $note.classList.add('highlight') 
+                //search result
+
+            } else {
+                //remove
+                
+                $note.remove()
+
+            }
+            let results = $notes.children.length
+            if (results == 0) {
+                $notes.innerHTML = '<span class="results>No results found</span>'
+            } else {
+                $notes.innerHTML = '<span class="results">Search results: ${results} </span>' +$notes.innerHTML
+            }
+            }
+        }
+    }
+        
+    
+
